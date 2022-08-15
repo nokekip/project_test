@@ -3,7 +3,7 @@
 /**
  * _printf - produces output according to a format
  * @format: a string of zero or more directives
- * @Return: number of characters printed
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
@@ -13,10 +13,14 @@ int _printf(const char *format, ...)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"i", print_integer},
+		{"d", print_integer},
+		/*{"b", print_binary},*/
+		{NULL, NULL}
 	};
 
 	if (format == NULL)
-	       return (-1);
+		return (-1);
 
 	va_start(args, format);
 

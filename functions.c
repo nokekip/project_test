@@ -33,8 +33,22 @@ int print_string(va_list arg)
  * @arg: argument
  * Return: Will return the amount of characters printed.
  */
-int print_percent(__attribute__((unused))va_list list)
+int print_percent(__attribute__((unused))va_list arg)
 {
 	_putchar('%');
 	return (1);
 }
+
+/**
+ * print_integer - Prints an integer
+ * @arg: passed argumenta
+ * Return: number of printed characters
+ */
+int print_integer(va_list arg)
+{
+	int len;
+
+	len = print_number(arg);
+	return (len);
+}
+

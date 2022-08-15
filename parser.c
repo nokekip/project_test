@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * parser - resolves and matches flags to respective funcs
  * @format: string of >= 0 directives
@@ -9,16 +8,13 @@
  */
 int parser(const char *format, convert_t funcs[], va_list args)
 {
-	int i, c, char_count, ret;
+	int i = 0, c = 0, char_count = 0, ret;
 
-	char_count = 0;
-	i = 0;
-	while (format && format[i] != '\0')
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			c = 0;
-			while (funcs[i].sym != NULL)
+			while (funcs[c].sym != NULL)
 			{
 				if (format[i + 1] == funcs[c].sym[0])
 				{
@@ -30,7 +26,6 @@ int parser(const char *format, convert_t funcs[], va_list args)
 				}
 				c++;
 			}
-
 			if (funcs[c].sym == NULL && format[i + 1] != ' ')
 			{
 				if (format[i + 1] != '\0')
@@ -53,4 +48,3 @@ int parser(const char *format, convert_t funcs[], va_list args)
 	}
 	return (char_count);
 }
-
